@@ -1,6 +1,7 @@
 package com.atguigu.spring5.testdemo;
 
 import com.atguigu.spring5.Book;
+import com.atguigu.spring5.Orders;
 import com.atguigu.spring5.User;
 import org.junit.Test;
 import org.springframework.beans.factory.BeanFactory;
@@ -29,5 +30,16 @@ public class TestSpring5 {
 
         System.out.println(book);
         book.testDemo();
+    }
+
+    @Test
+    public void testOrders() {
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("bean1.xml");
+
+        Orders orders = context.getBean("orders", Orders.class);
+
+        System.out.println(orders);
+        orders.orderTest();
     }
 }
