@@ -1,5 +1,6 @@
 package com.atguigu.spring5.testdemo;
 
+import com.atguigu.spring5.bean生命周期.Orders;
 import com.atguigu.spring5.collectiontype.Book;
 import com.atguigu.spring5.collectiontype.Course;
 import com.atguigu.spring5.collectiontype.Stu;
@@ -37,5 +38,18 @@ public class TestSpring5Demo1 {
 
         Course course = context.getBean("myBean", Course.class);
         System.out.println(course);
+    }
+
+    @Test
+    public void test4() {
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("bean8.xml");
+
+        Orders orders = context.getBean("orders", Orders.class);
+        System.out.println("第四步 获取创建bean实例对象");
+        System.out.println(orders);
+
+        // 手动让bean实例销毁
+        ((ClassPathXmlApplicationContext) context).close();
     }
 }
