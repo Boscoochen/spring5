@@ -6,6 +6,7 @@ import com.atguigu.spring5.collectiontype.Book;
 import com.atguigu.spring5.collectiontype.Course;
 import com.atguigu.spring5.collectiontype.Stu;
 import com.atguigu.spring5.factorybean.MyBean;
+import com.atguigu.spring5.注解方式创建类.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -61,5 +62,14 @@ public class TestSpring5Demo1 {
 
         Emp emp = context.getBean("emp", Emp.class);
         System.out.println(emp);
+    }
+
+    @Test
+    public void testService() {
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("bean11.xml");
+        UserService userService = context.getBean("userService", UserService.class);
+        System.out.println(userService);
+        userService.add();
     }
 }
