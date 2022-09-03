@@ -5,9 +5,11 @@ import com.atguigu.spring5.bean生命周期.Orders;
 import com.atguigu.spring5.collectiontype.Book;
 import com.atguigu.spring5.collectiontype.Course;
 import com.atguigu.spring5.collectiontype.Stu;
+import com.atguigu.spring5.config.SpringConfig;
 import com.atguigu.spring5.注解方式创建.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestSpring5Demo1 {
@@ -67,6 +69,16 @@ public class TestSpring5Demo1 {
     public void testService() {
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("bean11.xml");
+        UserService userService = context.getBean("userService", UserService.class);
+        System.out.println(userService);
+        userService.add();
+    }
+
+    @Test
+    public void testService2() {
+        // 加载配置类
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext(SpringConfig.class);
         UserService userService = context.getBean("userService", UserService.class);
         System.out.println(userService);
         userService.add();
