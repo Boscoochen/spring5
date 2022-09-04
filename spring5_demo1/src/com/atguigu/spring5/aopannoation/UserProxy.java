@@ -2,33 +2,41 @@ package com.atguigu.spring5.aopannoation;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
+@Order(1)
 public class UserProxy {
-    @Before(value = "execution(* com.atguigu.spring5.aopannoation.User.add(..))")
+    //相同切入点抽取
+    @Pointcut(value = "execution(* com.atguigu.spring5.aopannoation.User.add(..))")
+    public void pointDemo() {
+
+    }
+
+    @Before(value = "pointDemo()")
     public void before() {
         System.out.println("before........");
     }
 
-    @After(value = "execution(* com.atguigu.spring5.aopannoation.User.add(..))")
+    @After(value = "pointDemo()")
     public void after() {
         System.out.println("after..........");
     }
 
-    @AfterReturning(value = "execution(* com.atguigu.spring5.aopannoation.User.add(..))")
+    @AfterReturning(value = "pointDemo()")
     public void afterReturning() {
         System.out.println("AfterReturning...........");
     }
 
-    @AfterThrowing(value = "execution(* com.atguigu.spring5.aopannoation.User.add(..))")
+    @AfterThrowing(value = "pointDemo()")
     public void afterThrowing() {
         System.out.println("AfterThrowing...........");
     }
 
     // 环绕通知
-    @Around(value = "execution(* com.atguigu.spring5.aopannoation.User.add(..))")
+    @Around(value = "pointDemo()")
     public void around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         System.out.println("环绕之前..........");
         // 被增强的方法执行

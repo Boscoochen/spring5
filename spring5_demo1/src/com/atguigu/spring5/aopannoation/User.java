@@ -5,7 +5,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class User {
     public void add() {
-        int i = 10 / 0;
+        //测试@AfterThrowing
+//        int i = 10 / 0;
         System.out.println("add.......");
     }
 }
