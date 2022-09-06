@@ -12,10 +12,21 @@ public class TestBook {
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("bean14.xml");
         BookService bookService = context.getBean("bookService", BookService.class);
-        Book book = new Book();
-        book.setUserId("1");
-        book.setUsername("java");
-        book.setUstatus("a");
-        bookService.addBook(book);
+        // 添加
+//        Book book = new Book();
+//        book.setUserId("1");
+//        book.setUsername("java");
+//        book.setUstatus("a");
+//        bookService.addBook(book);
+
+        //修改
+//        Book book = new Book();
+//        book.setUserId("1");
+//        book.setUsername("javaupup");
+//        book.setUstatus("atguigu");
+//        bookService.updateBook(book);
+
+        //删除
+        bookService.deleteBook("1");
     }
 }
