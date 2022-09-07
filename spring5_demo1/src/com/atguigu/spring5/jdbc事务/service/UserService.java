@@ -3,10 +3,11 @@ package com.atguigu.spring5.jdbc事务.service;
 import com.atguigu.spring5.jdbc事务.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
+@Transactional(propagation = Propagation.REQUIRED)
 public class UserService {
     //注入dao
     @Autowired
