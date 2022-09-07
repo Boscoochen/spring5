@@ -5,6 +5,8 @@ import com.atguigu.spring5.jdbctemplate.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookService {
     // 注入dao
@@ -29,5 +31,15 @@ public class BookService {
     // 查询表记录数
     public int findCount() {
        return bookDao.selectCount();
+    }
+
+    // 查询返回对象
+    public Book findOne(String id) {
+        return bookDao.findBookInfo(id);
+    }
+
+    // 查询返回集合
+    public List<Book> findAll() {
+        return bookDao.findAllbook();
     }
 }

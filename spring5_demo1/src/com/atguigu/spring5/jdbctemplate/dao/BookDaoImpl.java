@@ -2,8 +2,11 @@ package com.atguigu.spring5.jdbctemplate.dao;
 
 import com.atguigu.spring5.jdbctemplate.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class BookDaoImpl implements BookDao{
@@ -43,5 +46,19 @@ public class BookDaoImpl implements BookDao{
         String sql = "select count(*) from t_book";
         Integer count = jdbcTemplate.queryForObject(sql, Integer.class);
         return count;
+    }
+
+    @Override
+    public Book findBookInfo(String id) {
+        String sql = "select * from t_book where user_id=?";
+        Book book = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<Book>(Book.class), id);
+        return book;
+    }
+
+    @Override
+    public List<Book> findAllbook() {
+        String sql = "select * from t_book";
+        List<Book> bookList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Book>(Book.class));
+        return bookList;
     }
 }
