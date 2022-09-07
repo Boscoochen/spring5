@@ -14,9 +14,9 @@ public class TestBook {
         BookService bookService = context.getBean("bookService", BookService.class);
         // 添加
 //        Book book = new Book();
-//        book.setUserId("1");
-//        book.setUsername("java");
-//        book.setUstatus("a");
+//        book.setUserId("3");
+//        book.setUsername("c++upup");
+//        book.setUstatus("c");
 //        bookService.addBook(book);
 
         //修改
@@ -27,6 +27,11 @@ public class TestBook {
 //        bookService.updateBook(book);
 
         //删除
-        bookService.deleteBook("1");
+//        bookService.deleteBook("1");
+
+        // 查询表记录数
+        int count = bookService.findCount();
+        System.out.println(count);
+
     }
 }

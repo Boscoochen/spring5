@@ -25,4 +25,9 @@ public class BookService {
     public void deleteBook(String id) {
         bookDao.delete(id);
     }
+
+    // 查询表记录数
+    public int findCount() {
+       return bookDao.selectCount();
+    }
 }
