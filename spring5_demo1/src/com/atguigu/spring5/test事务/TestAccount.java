@@ -12,6 +12,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 public class TestAccount {
 
     //注解声明
+    //把UserService.java 中的第11行comment掉
     @Test
     public void testAccount1() {
         ApplicationContext context =
@@ -21,6 +22,7 @@ public class TestAccount {
     }
 
     //xml声明
+    //把UserService.java 中的第11行comment掉
     @Test
     public void testAccount2() {
         ApplicationContext context =
@@ -31,6 +33,7 @@ public class TestAccount {
 
     @Test
     //完全注解声明
+    //把UserService.java 中的第11行comment打开
     public void testAccount3() {
         ApplicationContext context =
                 new AnnotationConfigApplicationContext(TxConfig.class);
