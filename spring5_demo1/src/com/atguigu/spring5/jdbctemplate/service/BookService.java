@@ -48,4 +48,14 @@ public class BookService {
     public void batchAdd(List<Object[]> batchArgs) {
         bookDao.batchAdd(batchArgs);
     }
+
+    //批量修改
+    public void batchUpdate(List<Object[]> batchArgs) {
+        bookDao.batchUpdateBook(batchArgs);
+    }
+
+    // 批量删除
+    public void batchDelete(List<Object[]> batchArgs) {
+        bookDao.batchDelete(batchArgs);
+    }
 }

@@ -46,13 +46,31 @@ public class TestBook {
 //        System.out.println(all);
 
         //批量添加
+//        List<Object[]> batchArgs = new ArrayList<>();
+//        Object[] o1 = {"4", "java", "d"};
+//        Object[] o2 = {"5" , "c++", "e"};
+//        Object[] o3 = {"6", "mysql", "f"};
+//        batchArgs.add(o1);
+//        batchArgs.add(o2);
+//        batchArgs.add(o3);
+//        bookService.batchAdd(batchArgs);
+
+        //批量修改
+//        List<Object[]> batchArgs = new ArrayList<>();
+//        Object[] o1 = {"java0909", "d4", "4"};
+//        Object[] o2 = {"c++1010", "e5", "5"};
+//        Object[] o3 = {"mysql111", "f6", "6"};
+//        batchArgs.add(o1);
+//        batchArgs.add(o2);
+//        batchArgs.add(o3);
+//        bookService.batchUpdate(batchArgs);
+
+        // 批量删除
         List<Object[]> batchArgs = new ArrayList<>();
-        Object[] o1 = {"4", "java", "d"};
-        Object[] o2 = {"5" , "c++", "e"};
-        Object[] o3 = {"6", "mysql", "f"};
+        Object[] o1 = {"4"};
+        Object[] o2 = {"5"};
         batchArgs.add(o1);
         batchArgs.add(o2);
-        batchArgs.add(o3);
-        bookService.batchAdd(batchArgs);
+        bookService.batchDelete(batchArgs);
     }
 }
