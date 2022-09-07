@@ -6,7 +6,9 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class TestBook {
     @Test
@@ -40,7 +42,17 @@ public class TestBook {
 //        System.out.println(one);
 
         // 查询返回集合
-        List<Book> all = bookService.findAll();
-        System.out.println(all);
+//        List<Book> all = bookService.findAll();
+//        System.out.println(all);
+
+        //批量添加
+        List<Object[]> batchArgs = new ArrayList<>();
+        Object[] o1 = {"4", "java", "d"};
+        Object[] o2 = {"5" , "c++", "e"};
+        Object[] o3 = {"6", "mysql", "f"};
+        batchArgs.add(o1);
+        batchArgs.add(o2);
+        batchArgs.add(o3);
+        bookService.batchAdd(batchArgs);
     }
 }

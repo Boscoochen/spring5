@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class BookService {
@@ -41,5 +42,10 @@ public class BookService {
     // 查询返回集合
     public List<Book> findAll() {
         return bookDao.findAllbook();
+    }
+
+    // 批量添加
+    public void batchAdd(List<Object[]> batchArgs) {
+        bookDao.batchAdd(batchArgs);
     }
 }
