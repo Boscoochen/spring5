@@ -4,6 +4,7 @@ import com.atguigu.spring5.jdbc事务.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.transaction.PlatformTransactionManager;
 
 public class TestAccount {
 
